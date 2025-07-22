@@ -1,27 +1,11 @@
-# HrManagement
+Run "ng serve" for dev server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Dashboard: navigate to the 3 main areas "Employees - Leaves - Expenses"
 
-## Development server
+Employees: Displays all employees. Click on an employee or the pen icon to update employee information. Click on create employee button to create a new employee.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Leaves: Click on "Request leave" button to request a new leave. Select from and to dates, and/or emploee to filter by date, employee, or by both. Click on "Charts" button to view bar graph.
 
-## Code scaffolding
+Expenses: Select employee ID to filter by employee. Click on "Add expenses" to add new expense claim. Click on "Charts" button to view bar graph.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Click on "Home" button in top left to return to the dashboard.
