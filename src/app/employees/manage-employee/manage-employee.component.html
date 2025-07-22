@@ -1,0 +1,15 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input id="name" type="text" formControlName="name" />
+
+  <label for="email">Email:</label>
+  <input id="email" type="email" formControlName="email" />
+
+  <label for="departmentId">Department ID:</label>
+  <input id="departmentId" type="number" formControlName="departmentId" />
+
+  <button type="submit" *ngIf="!employee" [disabled]="employeeForm.invalid">Create Employee</button>
+  <button type="submit" *ngIf="employee" [disabled]="employeeForm.invalid">Update Employee</button>
+  
+</form>
+

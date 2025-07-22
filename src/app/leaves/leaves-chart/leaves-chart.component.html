@@ -1,0 +1,9 @@
+<h2>Total Leaves by Leave Type</h2>
+<div class="bar-chart">
+  <div *ngFor="let type of leaveTypeNames" class="bar-container">
+    <div class="label">{{ type }} ({{ leaveTypeTotals[type] }} days)</div>
+    <div class="bar" [style.width.%]="(leaveTypeTotals[type] / totalLeaves) * 100">
+      {{ (leaveTypeTotals[type] / totalLeaves) * 100 | number: '1.0-0' }}%
+    </div>
+  </div>
+</div>

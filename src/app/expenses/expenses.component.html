@@ -1,0 +1,30 @@
+<h2>Expense Claims</h2>
+<label for="employee">Filter by Employee ID:</label>
+<select [(ngModel)]="selectedEmployeeId" (change)="onEmployeeChange(selectedEmployeeId)">
+  <option [ngValue]="null">All Employees</option>
+  <option *ngFor="let id of employeeIds" [ngValue]="id">{{ id }}</option>
+</select>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th>Details</th>
+  </tr>
+  <tr *ngFor="let claim of expenseClaims">
+    <td>{{ claim.date | date }}</td>
+    <td>{{ claim.description }}</td>
+    <td>{{ claim.total }}</td>
+    <td>{{ claim.status }}</td>
+    <td>
+      <ul>
+        <li *ngFor="let detail of claim.details">
+          {{ detail.date | date }} - {{ detail.description }} - {{ detail.type }} - {{ detail.total }}
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<a routerLink="./expense-form" class="expense-button" >Add expenses</a>
+<a routerLink="./expense-charts" class="chart" >Charts</a>

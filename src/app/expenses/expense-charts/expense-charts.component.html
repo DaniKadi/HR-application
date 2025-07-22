@@ -1,0 +1,9 @@
+<h2>Expense claim amounts by expense type</h2>
+<div class="bar-chart">
+  <div *ngFor="let item of chartData" class="bar-container">
+    <div class="label">{{ item.label }}</div>
+    <div class="bar" [style.width.%]="item.value">
+      {{ item.value | number: '1.0-0' }}%
+    </div>
+  </div>
+</div>

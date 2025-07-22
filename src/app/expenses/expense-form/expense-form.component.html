@@ -1,0 +1,34 @@
+<form [formGroup]="expenseForm" (ngSubmit)="onSubmit()">
+  <label for="date">Date:</label>
+  <input type="date" id="date" formControlName="date" />
+
+  <label for="description">Description:</label>
+  <input type="text" id="description" formControlName="description" />
+
+  <div formArrayName="details">
+    <div *ngFor="let detail of details.controls; let i = index" [formGroupName]="i">
+      <hr />
+      <label>Date:</label>
+      <input type="date" formControlName="date" />
+
+      <label>Description:</label>
+      <input type="text" formControlName="description" />
+
+      <label>Type:</label>
+      <select formControlName="type">
+        <option *ngFor="let t of types" [value]="t">{{ t }}</option>
+      </select>
+
+      <label>Total:</label>
+      <input type="number" formControlName="total" />
+
+      <button type="button" (click)="removeDetail(i)" *ngIf="details.length > 1">Remove</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="addDetail()">Add Expense Item</button>
+
+  <p><strong>Total:</strong> {{ calculateTotal() }}</p>
+
+  <button type="submit" [disabled]="expenseForm.invalid">Submit</button>
+</form>

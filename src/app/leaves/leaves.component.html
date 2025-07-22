@@ -1,0 +1,46 @@
+<h2>Leave Requests</h2>
+
+<div class="filters">
+  <label>
+    From:
+    <input type="date" [(ngModel)]="fromDate" (change)="filterLeaves()" />
+  </label>
+
+  <label>
+    To:
+    <input type="date" [(ngModel)]="toDate" (change)="filterLeaves()" />
+  </label>
+
+  <label>
+    Employee ID:
+    <input type="number" [(ngModel)]="employeeId" (input)="filterLeaves()" />
+  </label>
+
+  <button (click)="clearFilters()">Clear</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Days</th>
+      <th>Note</th>
+      <th>Employee ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let leave of leaves">
+      <td>{{ leave.leaveType?.name }}</td>
+      <td>{{ leave.from | date: 'shortDate' }}</td>
+      <td>{{ leave.to | date: 'shortDate' }}</td>
+      <td>{{ leave.numberOfDays }}</td>
+      <td>{{ leave.note }}</td>
+      <td>{{ leave.employeeId }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<a routerLink="./leave-form" class="Leave-button">Request leave</a>
+<a routerLink="./leaves-chart" class="leaveChart">Charts</a>
